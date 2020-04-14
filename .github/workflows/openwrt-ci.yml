@@ -54,7 +54,7 @@ jobs:
             mysql* \
             php*
           sudo -E apt-get update
-          sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
+          sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
 
@@ -104,9 +104,9 @@ jobs:
           # 编译x64固件:
           cat >> .config <<EOF
            
-          CONFIG_TARGET_bcm27xx=y
-          CONFIG_TARGET_bcm27xx_bcm2711=y
-          CONFIG_TARGET_bcm27xx_bcm2711_DEVICE_rpi-4=y
+          CONFIG_TARGET_x86=y
+          CONFIG_TARGET_x86_64=y
+          CONFIG_TARGET_x86_64_Generic=y
   
           EOF
 
@@ -157,7 +157,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-wireguard=y
-          CONFIG_PACKAGE_luci-app-wrtbwmon=y
           EOF
 
           # LuCI主题:
